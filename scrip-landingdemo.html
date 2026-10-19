@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SCRIP Inc. | Second Chance Re-Entry Initiative Program | Hartford, CT</title>
+<meta name="description" content="SCRIP helps formerly incarcerated adults and young people find real jobs, build careers, and stay home. 84% remain home. 64% employed.">
+<meta property="og:title" content="SCRIP: Second chances produce results">
+<meta property="og:description" content="84% remain home. 64% employed. Hartford’s Second Chance Re-Entry Initiative Program.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800;900&family=Public+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --gold:#d9a927; --mist:#f1f2f2;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+body{font:400 1.0625rem/1.6 var(--body);color:#000;background:#fff}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+h1,h2,h3{font-family:var(--display);font-weight:900;line-height:.95;text-transform:uppercase}
+h2{font-size:clamp(2.6rem,7vw,4.5rem)}
+
+/* Buttons */
+.btn{display:inline-block;padding:1rem 1.5rem;border:3px solid var(--gold);border-radius:4px;background:var(--gold);color:#000;font:800 1rem var(--body);text-decoration:none;transition:transform .15s,background .15s,color .15s}
+.btn.ghost{background:transparent;color:#fff}
+.btn:hover{transform:translateY(-3px);background:#fff;border-color:#fff;color:#000}
+.btn.sm{padding:.6rem 1rem;font-size:.95rem}
+.cta{display:flex;flex-wrap:wrap;gap:.9rem}
+
+/* Hero */
+.hero{min-height:100vh;min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;background:#000;color:#fff;overflow:hidden}
+.bar{display:flex;justify-content:space-between;align-items:center;padding-block:1.2rem}
+.mark{font:900 2rem/1 var(--display);letter-spacing:.04em;text-decoration:none}
+.pitch{align-self:center;padding-block:2rem}
+h1{font-size:clamp(3rem,12vw,9rem)}
+.ln{display:block;overflow:hidden}
+.ln span{display:block}
+.lead{max-width:34ch;margin:1.5rem 0 2rem;font-size:clamp(1.15rem,2.4vw,1.5rem);color:#e8e8e8}
+
+/* Bridge (from the SCRIP logo) */
+.bridge{display:block;width:100%;height:clamp(150px,24vw,280px)}
+.bridge *{fill:none;stroke:#fff;stroke-linecap:round}
+.bridge .sun{fill:var(--gold);stroke:none}
+.bridge .water{fill:#000;stroke:none}
+.bridge .tw{stroke-width:12}
+.bridge .cb{stroke-width:5}
+.bridge .dk{stroke-width:6}
+.bridge .hang line{stroke-width:2}
+
+/* Stats */
+.stats{background:var(--gold);padding-block:clamp(3rem,8vw,6rem)}
+.stats .grid{display:grid;gap:0 3rem;margin-top:2.5rem}
+.stat{display:block;width:100%;padding:1.2rem 0 1.8rem;border:0;border-top:5px solid #000;background:none;color:#000;font:inherit;text-align:left;cursor:pointer}
+.stat:focus-visible{outline-color:#000}
+.num{display:block;font:900 clamp(3.5rem,9vw,6.5rem)/1 var(--display)}
+.num b{font:inherit}
+.lbl{display:block;font:800 1.25rem var(--body)}
+.sub{display:block;max-width:36ch}
+
+/* Pillars and wins */
+.pillars,.wins{padding-block:clamp(3rem,8vw,6rem)}
+.pillars ul{list-style:none;padding:0;margin-top:2.5rem}
+.pillars li{display:grid;gap:.4rem 2rem;padding:1.4rem 0;border-top:5px solid #000;background:linear-gradient(var(--gold),var(--gold)) left bottom/0 8px no-repeat;transition:background-size .35s}
+.pillars li:hover{background-size:100% 8px}
+.pillars h3{font-size:clamp(2.2rem,5vw,3.2rem)}
+.wins{background:var(--mist)}
+.wins .cols{display:grid;gap:2.5rem;margin-top:2.5rem}
+.wins h3{display:inline-block;margin-bottom:.8rem;padding-bottom:.3rem;border-bottom:6px solid var(--gold);font-size:clamp(1.9rem,4vw,2.6rem)}
+.wins p{max-width:40ch}
+
+/* Contact */
+.end{padding-block:clamp(3rem,8vw,6rem) 2rem;background:#000;color:#fff}
+.end p{max-width:46ch;margin-top:1rem}
+.go{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.3rem 1rem;margin-top:1rem;padding:1.2rem 1.4rem;border:3px solid var(--gold);border-radius:4px;color:#fff;text-decoration:none;transition:background .2s,color .2s}
+.go b{font:900 clamp(1.9rem,5vw,3rem)/1 var(--display);text-transform:uppercase}
+.go:hover{background:var(--gold);color:#000}
+.end .foot{margin-top:3rem;color:#bdbdbd;font-size:.95rem}
+
+@media (min-width:760px){
+  .pillars li{grid-template-columns:1fr 1.4fr;align-items:baseline}
+  .wins .cols{grid-template-columns:1fr 1fr}
+}
+@media (min-width:900px){
+  .stats .grid{grid-template-columns:1fr 1fr}
+}
+
+/* Motion: one page-load sequence (headline, sun, bridge). Skipped if the visitor prefers reduced motion. */
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .ln span{transform:translateY(105%);animation:up .9s cubic-bezier(.2,.8,.2,1) forwards}
+  .ln:nth-child(2) span{animation-delay:.15s}
+  .lead,.cta{opacity:0;animation:fade .8s .7s forwards}
+  .sun{transform:translateY(160px);animation:up 2.4s cubic-bezier(.2,.8,.2,1) .3s forwards}
+  .draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2s cubic-bezier(.65,0,.35,1) .5s forwards}
+  .cb{animation-delay:.9s}
+  .hang line{opacity:0;animation:fade .5s calc(1.9s + var(--i) * .06s) forwards}
+}
+@keyframes up{to{transform:none}}
+@keyframes fade{to{opacity:1}}
+@keyframes draw{to{stroke-dashoffset:0}}
+</style>
+</head>
+<body>
+<main>
+
+<section class="hero" id="top">
+  <header class="wrap bar">
+    <a class="mark" href="#top" aria-label="SCRIP home">SCRIP</a>
+    <a class="btn sm" href="tel:+18604002488">Call (860) 400-2488</a>
+  </header>
+
+  <div class="wrap pitch">
+    <h1><span class="ln"><span>Second chances</span></span><span class="ln"><span>produce results.</span></span></h1>
+    <p class="lead">SCRIP helps formerly incarcerated adults and young people find real jobs, build careers, and stay home.</p>
+    <div class="cta">
+      <a class="btn" href="#contact">Get help finding work</a>
+      <a class="btn ghost" href="#contact">Hire or partner with SCRIP</a>
+    </div>
+  </div>
+
+  <svg class="bridge" viewBox="0 0 1200 260" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <circle class="sun" cx="600" cy="205" r="150"/>
+    <rect class="water" x="0" y="204" width="1200" height="60"/>
+    <path class="tw draw" pathLength="1" d="M300 38V212M900 38V212"/>
+    <path class="cb draw" pathLength="1" d="M-20 196Q140 150 300 38Q600 198 900 38Q1060 150 1220 196"/>
+    <path class="dk draw" pathLength="1" d="M-20 204H1220"/>
+    <g class="hang" id="hangers"></g>
+  </svg>
+</section>
+
+<section class="stats" aria-labelledby="stats-h">
+  <div class="wrap">
+    <h2 id="stats-h">Second chances, by the numbers</h2>
+    <div class="grid">
+      <button class="stat" type="button">
+        <span class="num"><b data-to="84">84</b>%</span>
+        <span class="lbl">remain home</span>
+        <span class="sub">Building stability, stronger families, safer communities.</span>
+      </button>
+      <button class="stat" type="button">
+        <span class="num"><b data-to="64">64</b>%</span>
+        <span class="lbl">employed</span>
+        <span class="sub">Gaining skills, creating opportunity, building independence.</span>
+      </button>
+      <button class="stat" type="button">
+        <span class="num"><b data-to="7">7</b></span>
+        <span class="lbl">years of impact</span>
+        <span class="sub">Different stories, brighter tomorrows.</span>
+      </button>
+      <button class="stat" type="button">
+        <span class="num"><b data-to="22272.72" data-dec="2" data-pre="$">$22,272.72</b></span>
+        <span class="lbl">NBCUniversal Local IMPACT Grant</span>
+        <span class="sub">Celebrated on NBC Connecticut on September 30.</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="pillars" aria-labelledby="pillars-h">
+  <div class="wrap">
+    <h2 id="pillars-h">Five ways SCRIP supports people coming home</h2>
+    <ul>
+      <li><h3>Reentry</h3><p>Support that goes beyond the day of release.</p></li>
+      <li><h3>Healing</h3><p>Trauma-informed mental health and wellness support.</p></li>
+      <li><h3>Housing</h3><p>Stable homes and stronger futures.</p></li>
+      <li><h3>Employment</h3><p>Jobs and real career pathways.</p></li>
+      <li><h3>Mentorship</h3><p>Guidance that lasts.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="wins" aria-labelledby="wins-h">
+  <div class="wrap">
+    <h2 id="wins-h">Recent wins</h2>
+    <div class="cols">
+      <article>
+        <h3>ASCEND, a 15-week course</h3>
+        <p>SCRIP’s Fall 2026 cohort celebrated their achievement together in October.</p>
+      </article>
+      <article>
+        <h3>NBCUniversal Local IMPACT Grant</h3>
+        <p>SCRIP was awarded $22,272.72 and shared the moment on NBC Connecticut.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="end" id="contact">
+  <div class="wrap">
+    <h2>Rediscover who you are</h2>
+    <p>Pick the one that fits and send us a note, or call (860) 400-2488.</p>
+    <a class="go" href="mailto:scrip.connection@gmail.com?subject=I%20need%20work"><b>I need work</b><span>Jobs, housing, healing, and mentorship</span></a>
+    <a class="go" href="mailto:scrip.connection@gmail.com?subject=I%20want%20to%20hire"><b>I want to hire</b><span>Partner with SCRIP and hire local talent</span></a>
+    <a class="go" href="mailto:scrip.connection@gmail.com?subject=I%20want%20to%20help"><b>I want to help</b><span>Volunteer, sponsor, or give</span></a>
+    <p class="foot">SCRIP Inc., Second Chance Re-Entry Initiative Program<br>75 Charter Oak Ave, Suite 240, Building 2, Hartford, CT 06106<br><a href="tel:+18604002488">(860) 400-2488</a></p>
+  </div>
+</section>
+
+</main>
+
+<script>
+(() => {
+  const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Bridge hangers: vertical cables from the main cable down to the deck
+  const g = document.getElementById("hangers");
+  if (g) {
+    for (let i = 0, x = 330; x <= 870; x += 30, i++) {
+      const t = (x - 300) / 600, y = 38 + 320 * t * (1 - t);
+      const l = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      l.setAttribute("x1", x); l.setAttribute("x2", x);
+      l.setAttribute("y1", y); l.setAttribute("y2", 204);
+      l.style.setProperty("--i", i);
+      g.appendChild(l);
+    }
+  }
+
+  // Stat counters: count up when scrolled into view, tap a stat to replay
+  const fmt = (v, d) => v.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
+  const run = el => {
+    const to = +el.dataset.to, d = +(el.dataset.dec || 0), p = el.dataset.pre || "";
+    if (reduce) { el.textContent = p + fmt(to, d); return; }
+    const t0 = performance.now(), dur = 1800;
+    const tick = now => {
+      const k = Math.min((now - t0) / dur, 1), ease = 1 - Math.pow(1 - k, 4);
+      el.textContent = p + fmt(to * ease, d);
+      if (k < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+
+  const nums = document.querySelectorAll("[data-to]");
+  if ("IntersectionObserver" in window && !reduce) {
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { run(e.target); io.unobserve(e.target); }
+    }), { threshold: 0.6 });
+    nums.forEach(n => { n.textContent = (n.dataset.pre || "") + fmt(0, +(n.dataset.dec || 0)); io.observe(n); });
+  }
+  document.querySelectorAll(".stat").forEach(b =>
+    b.addEventListener("click", () => run(b.querySelector("[data-to]"))));
+})();
+</script>
+</body>
+</html>
